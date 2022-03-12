@@ -1,31 +1,29 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![This is an image](/assets/images/Screenshot%202022-03-13%20at%2000.17.28.png)
 
-Welcome csfree87,
+Features
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Python based Tic-Tac-Toe game, 2 players, no computer ai, with score counter and option to play again
 
-## Reminders
+Game
+        Player able to enter 1-9 to play tic tac toe with themselves or a friend. 
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+Scorer
+        Score tracker will show user total score at end of the game and on repeat plays.
 
-## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+Testing
 
-1. `heroku/python`
-2. `heroku/nodejs`
+No issues found. 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+![This is an image](/assets/images/Screenshot%202022-03-12%20at%2018.19.50.png)
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+Deployment
 
-Connect your GitHub repository and deploy as normal.
+  The site was deployed to GitHub pages. The steps to deploy are as follows:
+        In the GitHub repository, navigate to the Settings tab
+        From the source section drop-down menu, select the Master Branch
+        Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
 
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+    second step of deployment involes heroku with a config vars key of PORT and 8000
+    python and nodejs buildpacks added to deployement, connected to automatic update via github and deployed succesfully at:
+    https://tic-tac-toe-project3.herokuapp.com/
