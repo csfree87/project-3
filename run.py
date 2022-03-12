@@ -58,6 +58,38 @@ def check_win():
             print('X', 'wins')
             return 1
 
+# Processes the player's move.
+def player_move():
+    # Establishing global variables
+    global count
+    global Score_x
+    global Score_o
+    # Retry variable to loop upon user error
+    retry = 0
+    while retry < 1 and count < 9:
+        # Try catches empty input
+        try:
+            move = int(input(player + ", choose your spot 1-9: ")) - 1
+        except ValueError:
+            print("Invalid input.")
+        # Else necessary to import move variable
+        else:
+            # 'if' statement ensures the value entered is 0-9 to catch IndexError
+            if 1 <= move <= 9:
+                if (board[move]) == "-":
+                    board[move] = player
+                    retry = 1
+                    count += 1
+                else:
+                    print("That spot is taken. Try again")
+            else:
+                print("Invalid input.")
+                # Return to while loop
+    if count == 9:
+        print("Tie!")
+        Score_x += 0
+        Score_o += 0
+
 def play_game():
     player = "X"
     count = 0
