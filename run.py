@@ -78,7 +78,8 @@ def player_move():
             print("Invalid input.")
         # Else necessary to import move variable
         else:
-            # 'if' statement ensures the value entered is 0-9 to catch IndexError
+            # 'if' statement ensures the value entered is 0-9 to catch
+            # IndexError
             if 0 <= move <= 9:
                 if (board[move]) == "-":
                     board[move] = player
@@ -117,8 +118,8 @@ def play_game():
 
 # Play again
 while True:
-    print("To start game, select a number 1-9 to select spot on tic tac toe board") 
-    print("win by placing three of the same in a row")
+    print("To start game, select a number 1-9 to select spot on tic tac toe")
+    print("board win by placing three of the same in a row")
 
     play_game()
     # Print welcome instructions
