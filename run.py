@@ -90,40 +90,26 @@ def player_move():
         Score_x += 0
         Score_o += 0
 
+# Game play function
 def play_game():
-    player = "X"
-    count = 0
+    global player
     while True:
+        # Sets the board and score
         playing_board()
         global Score_x, Score_o
 
-        if player == 'X' and count != 0:
-            if win_check('O'):
-                Score_o += 1
-                print('O', 'wins')
-                break
+        # Checks for a victor before processing the next move
+        if check_win() == 1:
+            break
+        player_move()
 
-        elif player == 'O' and count != 0:
-            if win_check('X'):
-                Score_x += 1
-                print('X', 'wins')
-                break
-
-        move = int(input(player + ", choose your spot 1-9: ")) - 1
-        if (board[move]) == "-":
-            board[move] = player
-            count += 1
-            if count == 9:
-                print("Tie!")
-                Score_x += 0
-                Score_o += 0
-                break
-        else:
-            print("That spot is taken. Try again")
+        # Swaps player for next move
         if player == "X":
             player = "O"
         else:
             player = "X"
+
+
 
 # Play again
 while True:
