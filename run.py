@@ -5,13 +5,15 @@ board = ["-", "-", "-",
          "-", "-", "-",
          "-", "-", "-"]
 
-Count = 0
+# Global variables
+count = 0
 Place = "X"
-Player = "X"
+player = "X"
 
 # Player score
 Score_x = 0
 Score_o = 0
+
 
 # Game functions
 
@@ -26,19 +28,20 @@ def playing_board():
 
 # Will check for winner during game, will check up and down, side to side,
 # and diagonal
-# check for winner, willcross check all directions using one function
+# check for winner, will cross-check all directions using one function
 def win_check(win):
     if board[0] == board[1] == board[2] == win or \
-        board[0] == board[4] == board[8] == win or \
-        board[0] == board[3] == board[6] == win or \
-        board[1] == board[4] == board[7] == win or \
-        board[2] == board[5] == board[8] == win or \
-        board[2] == board[4] == board[6] == win or \
-        board[3] == board[4] == board[5] == win or \
+            board[0] == board[4] == board[8] == win or \
+            board[0] == board[3] == board[6] == win or \
+            board[1] == board[4] == board[7] == win or \
+            board[2] == board[5] == board[8] == win or \
+            board[2] == board[4] == board[6] == win or \
+            board[3] == board[4] == board[5] == win or \
             board[6] == board[7] == board[8] == win:
         return True
     else:
         return False
+
 
 # Checks for a winner, ends the game if so.
 def check_win():
@@ -58,6 +61,7 @@ def check_win():
             print('X', 'wins')
             return 1
 
+
 # Processes the player's move.
 def player_move():
     # Establishing global variables
@@ -75,7 +79,7 @@ def player_move():
         # Else necessary to import move variable
         else:
             # 'if' statement ensures the value entered is 0-9 to catch IndexError
-            if 1 <= move <= 9:
+            if 0 <= move <= 9:
                 if (board[move]) == "-":
                     board[move] = player
                     retry = 1
@@ -91,6 +95,8 @@ def player_move():
         Score_o += 0
 
 # Game play function
+
+
 def play_game():
     global player
     while True:
@@ -111,18 +117,36 @@ def play_game():
 
 
 
+
 # Play again
 while True:
-    print("To start game, select a number 1-9 to select spot on tic tac toe board win by placing three of the same in a row")
+    print("To start game, select a number 1-9 to select spot on tic tac toe board") 
+    print("win by placing three of the same in a row")
 
     play_game()
-# Print welcome instructions
-    
-# Print score
+    # Print welcome instructions
+
+    # Print score
     print("Player O gained " + str(Score_o) + " points")
     print("Player X gained " + str(Score_x) + " points")
-# Reset gameboard
+    # Reset gameboard
     board = ['-'] * 9
 
-    if input("Play again (y/n): ") == "n":
-        break
+    # Loops until valid response given
+    PendingResponse = 0
+    while PendingResponse == 0:
+        again = input("Play again (y/n): ")
+        if again == "y":
+            PendingResponse = 1
+        elif again == "n":
+            quit()
+        else:
+            print("Invalid input")
+
+    # Optional, simpler statement, but only checks for 'n'
+    # if input("Play again (y/n): ") == "n":
+        # break
+
+    # X always goes first, and the count must be reset.
+    count = 0
+    player = "X"
