@@ -7,6 +7,7 @@ board = ["-", "-", "-",
 
 Count = 0
 Place = "X"
+Player = "X"
 
 # Player score
 Score_x = 0
@@ -39,8 +40,23 @@ def win_check(win):
     else:
         return False
 
-# Game play function
-
+# Checks for a winner, ends the game if so.
+def check_win():
+    # Establishing global variables
+    global count
+    global Score_x
+    global Score_o
+    # The winner will always be the current player
+    if player == 'X' and count != 0:
+        if win_check('O'):
+            Score_o += 1
+            print('O', 'wins')
+            return 1
+    elif player == 'O' and count != 0:
+        if win_check('X'):
+            Score_x += 1
+            print('X', 'wins')
+            return 1
 
 def play_game():
     player = "X"
@@ -61,9 +77,7 @@ def play_game():
                 print('X', 'wins')
                 break
 
-        move = int(input(player + ", choose your spot with 1-9: ")) - 1
-        if move != int():
-            print("Incorrect input, select number 1-9")
+        move = int(input(player + ", choose your spot 1-9: ")) - 1
         if (board[move]) == "-":
             board[move] = player
             count += 1
