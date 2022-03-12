@@ -115,9 +115,6 @@ def play_game():
         else:
             player = "X"
 
-
-
-
 # Play again
 while True:
     print("To start game, select a number 1-9 to select spot on tic tac toe board") 
@@ -142,10 +139,6 @@ while True:
             quit()
         else:
             print("Invalid input")
-
-    # Optional, simpler statement, but only checks for 'n'
-    # if input("Play again (y/n): ") == "n":
-        # break
 
     # X always goes first, and the count must be reset.
     count = 0
